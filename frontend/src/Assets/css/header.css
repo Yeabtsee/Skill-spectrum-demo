@@ -1,0 +1,40 @@
+/* Header container styling */
+.ctn {
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand styling */
+.brand {
+  flex: 1; /* Let the brand take up available space but not the full width */
+  margin: 0; /* Reset any default margin */
+  white-space: nowrap; /* Prevent line break */
+}
+
+/* Navbar Styles for Smaller Screens */
+@media (max-width: 992px) {
+  .navbar-toggler {
+      position: relative;
+      right: 0;
+      margin-left: auto; /* Push the toggle button to the right */
+      z-index: 1000;
+  }
+  .brand{
+    margin-left: 10px;
+    position: absolute;
+    top: 15px;
+    z-index: 1; 
+  }
+  .navbar-nav{
+    margin-left: 45%;
+  }
+
+  /* Make sure navbar-collapse doesn't take full width */
+  .navbar-collapse {
+      text-align: left;
+  }
+
+  .navbarr {
+      flex: 1; /* Allow the nav to use remaining space */
+  }
+}

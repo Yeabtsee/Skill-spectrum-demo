@@ -1,0 +1,16 @@
+.tw:hover{
+    background-color: rgb(46, 46, 255);
+    color: white;
+}
+.fb:hover{
+    background-color:rgb(0, 0, 255);
+    color: white;
+}
+.in:hover{
+    background-color: rgb(0, 0, 167);
+    color: white;
+}
+.ig:hover{
+    background-color: rgb(255, 20, 59);
+    color: white;
+}
