@@ -20,7 +20,7 @@ const Form = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/api/contacts', formData);
+            const response = await axios.post('/api/contacts', formData);
             alert(response.data.message);
             setFormData({ name: '', email: '', subject: '', message: '' }); // Clear the form after submission
         } catch (error) {

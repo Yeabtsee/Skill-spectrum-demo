@@ -18,7 +18,7 @@ const Footer = () => {
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const response = await fetch('http://localhost:5000/api/courses');
+      const response = await fetch('/api/courses');
       const data = await response.json();
       setCourses(data);
     };
@@ -39,7 +39,7 @@ const Footer = () => {
       }
   
       try {
-        const response = await axios.post('http://localhost:5000/api/testimonials', {
+        const response = await axios.post('/api/testimonials', {
          username,
           testimonial,
         }, {

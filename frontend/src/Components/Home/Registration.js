@@ -17,7 +17,7 @@ const Registration = () => {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const url = isLogin ? 'http://localhost:5000/api/users/login' : 'http://localhost:5000/api/users/register';
+      const url = isLogin ? '/api/users/login' : '/api/users/register';
       const method = isLogin ? 'POST' : 'POST';
       
       try {
