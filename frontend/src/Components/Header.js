@@ -80,9 +80,9 @@ const Header = () => {
           </div>
           {isAuthenticated ? (
             <div className="logout-container">
-              <span className="ml-auto" style={{ fontSize: '25px', fontWeight: 'bold' }}>Welcome, {username}</span>
+              <span className="welcome ml-auto" style={{ fontSize: '25px', fontWeight: 'bold' }}>Welcome, {username}</span>
               <div className="logout-btn">
-                <button onClick={handleLogout}><LogoutIcon /></button>
+                <button className='log-out' onClick={handleLogout}><LogoutIcon /></button>
                 <span className="tooltip">Logout</span>
               </div>
             </div>

@@ -14,3 +14,8 @@
     background-color: rgb(255, 20, 59);
     color: white;
 }
+@media (max-width: 768px) {
+    .info-ctn,.crs-links {
+        margin-left: 30% !important;
+    }
+}

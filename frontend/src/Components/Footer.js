@@ -64,7 +64,7 @@ const Footer = () => {
         {/* Get In Touch Section */}
         <div className="col-lg-7 col-md-12">
           <div className="row">
-            <div className="col-md-6 mb-5">
+            <div className="info-ctn col-md-6 mb-5">
               <h5 className="text-primary text-uppercase mb-4" style={{ letterSpacing: '5px' }}>Get In Touch</h5>
               <p><i className="fa fa-map-marker-alt mr-2"></i>Kilinto, Addis Ababa, Ethiopia</p>
               <p><i className="fa fa-phone-alt mr-2"></i>+251 984 790 858</p>
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
 
             {/* Our Courses Section */}
-            <div className="col-md-6 mb-5">
+            <div className="crs-links col-md-6 mb-5">
               <h5 className="text-primary text-uppercase mb-4" style={{ letterSpacing: '5px' }}>Our Courses</h5>
               <div className="d-flex flex-column justify-content-start">
                 {courses.map(course => (
@@ -98,7 +98,7 @@ const Footer = () => {
 
         {/* Testimonial Section */}
         <div className="col-lg-5 col-md-12 mb-5">
-      <h5 className="text-primary text-uppercase mb-4" style={{ letterSpacing: '5px' }}>Testimonial</h5>
+      <h5 className="text-primary text-uppercase mb-4" style={{ letterSpacing: '5px',textAlign:'center' }}>Testimonial</h5>
       <h3 style={{color:"white", marginBottom:"10px"}}>Share your experience with us</h3>
 
       <div className="w-100">

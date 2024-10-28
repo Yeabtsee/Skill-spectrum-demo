@@ -1,22 +1,63 @@
-/* Header container styling */
+
+.logout-container {
+  position: relative;
+}
+
+.logout-btn {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  font-size: 18px;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  color: #f9793e;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1000;
+  top: 100%; 
+  left: 50%;
+  margin-left: -30px; 
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.log-out{
+  border:none;
+  background-color: #fff;
+}
+
+.logout-btn:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.logout-container{
+  display: flex;
+  justify-content: space-between;
+}
+.welcome{
+  margin-right: 25px;
+}
+
 .ctn {
   align-items: center;
   justify-content: space-between;
 }
 
-/* Brand styling */
 .brand {
-  flex: 1; /* Let the brand take up available space but not the full width */
-  margin: 0; /* Reset any default margin */
-  white-space: nowrap; /* Prevent line break */
+  flex: 1; 
+  margin: 0; 
+  white-space: nowrap; 
 }
 
-/* Navbar Styles for Smaller Screens */
 @media (max-width: 992px) {
   .navbar-toggler {
       position: relative;
       right: 0;
-      margin-left: auto; /* Push the toggle button to the right */
+      margin-left: auto; 
       z-index: 1000;
   }
   .brand{
@@ -29,12 +70,30 @@
     margin-left: 45%;
   }
 
-  /* Make sure navbar-collapse doesn't take full width */
   .navbar-collapse {
       text-align: left;
   }
 
   .navbarr {
-      flex: 1; /* Allow the nav to use remaining space */
+      flex: 1; 
+  }
+  .logout-btn{
+    margin-left: 45%;
+  }
+}
+@media (max-width: 1200px) {
+    .welcome{
+      display: none;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .logout-btn {
+    margin-right: 65px;
+  }
+  .brand{
+    margin-left: 15px;
+  }
+  .navbar-nav{
+    margin-left: 35px;
   }
 }
