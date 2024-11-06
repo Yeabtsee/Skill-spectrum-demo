@@ -40,4 +40,21 @@ export const loginUser = (req, res) => {
     res.status(200).json({ token, username });
   });
 };
+export const allUsers = (req, res) => {
+  const query = 'SELECT id, fullName, Uni_id, username, email, course FROM users';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Error accessing the database:", err);
+      return res.status(500).json({ message: 'Error accessing the database!' });
+    }
+
+    // Check if results is an array and if it has elements
+    if (!Array.isArray(results) || results.length === 0) {
+      return res.status(404).json({ message: 'No users found!' });
+    }
+
+    res.status(200).json({ users: results });
+  });
+};
 
