@@ -7,6 +7,8 @@ import coursesRoute from './Routes/courses.js';
 import testimonialsRoute from './Routes/testimonials.js';
 import db from './config/db.js';
 import contactsRoute from './Routes/contact.js';
+import resetRoute from './Routes/resetPassword.js';
+import TokenRoutes from './Routes/password.js'
 import path from 'path';
 import {fileURLToPath} from 'url';
 
@@ -26,6 +28,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/courses', coursesRoute);
 app.use('/api/testimonials', testimonialsRoute);
 app.use('/api/contacts', contactsRoute);
+app.use('/api/forgot-password', resetRoute);
+app.use('/api/reset-password', TokenRoutes)
 
 app.use(express.static(path.join(__dirname,'/frontend/build')))
 
