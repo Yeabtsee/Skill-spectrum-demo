@@ -7,20 +7,31 @@ dotenv.config();
 
 
 export const registerUser = async (req, res) => {
-  const { username, email, password, course } = req.body;
-  try {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const query = 'INSERT INTO users (username, email, password, course) VALUES (?, ?, ?, ?)';
-    db.query(query, [username, email, hashedPassword, course], (err, result) => {
-      if (err) {
-        return res.status(500).json({ message: 'Username or Email exists. Please change your credentials!', error: err });
+  const {fullName,uni_id, username, email, password, course } = req.body;
+  const validation= `select username from users where username= ?`;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  db.query(validation,[username],(err,result)=>{
+    if(err || result.length === 0){    
+      try {
+        const query = 'INSERT INTO users (fullName,uni_id, username, email, password, course) VALUES (? ,? , ?, ?, ?, ?)';
+        db.query(query, [fullName,uni_id,username, email, hashedPassword, course], (err, result) => {
+          if (err) {
+            return res.status(500).json({ message: 'Username or Email exists. Please change your credentials!', error: err });
+          }
+          res.status(201).json({ message: 'User registered successfully', userId: result.insertId });
+        });
+      } catch (err) {
+        console.error(err)
+        res.status(500).json({ message: 'Server error', error: err });
       }
-      res.status(201).json({ message: 'User registered successfully', userId: result.insertId });
-    });
-  } catch (err) {
-    res.status(500).json({ message: 'Server error', error: err });
-  }
+    }
+    else{
+      return res.status(500).json({ message: 'Username or Email exists. Please change your credentials!', error: err });
+    }
+  })
+  
 };
+
 
 export const loginUser = (req, res) => {
   const { username, password } = req.body;
