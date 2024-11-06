@@ -18,7 +18,7 @@ export const sendResetPasswordEmail = (email, token, callback) => {
     from: process.env.SMTP_USER, // sender address
     to: email, //receiver
     subject: 'Password Reset Request',
-    text: `To reset your password, click the link: https://skill-spectrum.onrender.com//reset-password/${token}`,
+    text: `To reset your password, click the link: https://skill-spectrum.onrender.com/reset-password/${token}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
