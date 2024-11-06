@@ -49,13 +49,13 @@ const Header = () => {
       window.location.reload();
     }
   };
-  
+  const adminUsers = ["YEAB", "JOSI", "ABEL"];
 
   return (
    
     <div className="container-fluid">
     <div className="ctn row border-top px-xl-5" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <h2 className="brand">Skill Spectrum</h2>
+      <Link to='/' style={{textDecoration: 'none'}}><h2 className="brand">Skill Spectrum</h2></Link>
       <nav className="col-lg-9 navbarr navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
         <button type="button" className="navbar-toggler" onClick={toggleNavbar}>
           <span className="navbar-toggler-icon"></span>
@@ -77,6 +77,11 @@ const Header = () => {
             <NavLink to="/contact" className="nav-item nav-link" style={({ isActive }) => ({ color: isActive ? 'orange' : 'black' })}>
               Contact
             </NavLink>
+            {isAuthenticated && adminUsers.includes(username) && (
+              <NavLink to="/admin" className="nav-item nav-link" style={({ isActive }) => ({ color: isActive ? 'orange' : 'black' })}>
+                Admin
+              </NavLink>
+            )}
           </div>
           {isAuthenticated ? (
             <div className="logout-container">

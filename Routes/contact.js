@@ -24,4 +24,16 @@ contactsRoute.post('/', (req, res) => {
     });
 });
 
+contactsRoute.get('/', (req,res)=>{
+    const query = 'SELECT * FROM contacts';
+  db.query(query, (err, results) => {
+      if (err) {
+          console.error('Error fetching contacts:', err);
+          res.status(500).json({ error: 'Failed to fetch contacts' });
+      } else {
+          res.json({contacts: results});
+      }
+  });
+})
+
 export default contactsRoute;

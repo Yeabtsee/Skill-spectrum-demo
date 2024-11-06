@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TeamMembers = ({ image, name, position, telegram, instagram, linkedin }) => {
   return (
@@ -8,9 +9,9 @@ const TeamMembers = ({ image, name, position, telegram, instagram, linkedin }) =
         <div className="team-img position-relative">
           <img className="img-fluid" src={image} alt={name} />
           <div className="team-social">
-            <a className="btn btn-outline-light btn-square mx-1" href={telegram}><i className="fab fa-telegram"></i></a>
-            <a className="btn btn-outline-light btn-square mx-1" href={instagram}><i className="fab fa-instagram"></i></a>
-            <a className="btn btn-outline-light btn-square mx-1" href={linkedin}><i className="fab fa-linkedin-in"></i></a>
+            <Link className="btn btn-outline-light btn-square mx-1" to={telegram} target='blank'><i className="fab fa-telegram"></i></Link>
+            <Link className="btn btn-outline-light btn-square mx-1" to={instagram} ><i className="fab fa-instagram"></i></Link>
+            <Link className="btn btn-outline-light btn-square mx-1" to={linkedin} ><i className="fab fa-linkedin-in"></i></Link>
           </div>
         </div>
         <div className="bg-secondary p-4">

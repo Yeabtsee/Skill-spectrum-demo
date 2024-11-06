@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import team1 from '../../Assets/img/team-3.jpg';
-import team2 from '../../Assets/img/team-2.jpg';
+import team2 from '../../Assets/img/Abel.jpg';
 import team3 from '../../Assets/img/20211218_1728511.jpg';
-import team4 from '../../Assets/img/team-4.jpg';
-import team5 from '../../Assets/img/team-1.jpg';
-import team6 from '../../Assets/img/team-2.jpg';
+import team4 from '../../Assets/img/Josi2.jpg';
+import '../../Assets/css/staff.css'
 
 const Team = () => {
   return (
@@ -16,13 +14,13 @@ const Team = () => {
                 <h1>Meet Our Staff</h1>
             </div>
             <div className="row">
-                <div className="col-md-6 col-lg-3 text-center team mb-4">
+                <div className="col-md-6  col-lg-4 text-center team mb-4">
                     <div className="team-item rounded overflow-hidden mb-2">
                         <div className="team-img position-relative">
                             <img className="img-fluid" src={team4} alt=""/>
                             <div className="team-social">
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-telegram"></i></Link>
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-instagram"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://t.me/YosephTewolde"><i className="fab fa-telegram"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://www.instagram.com/_.jossy.t_"><i className="fab fa-instagram"></i></Link>
                                 <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-linkedin-in"></i></Link>
                             </div>
                         </div>
@@ -33,54 +31,39 @@ const Team = () => {
                        
                     </div>
                 </div>
-                <div className="col-md-6 col-lg-3 text-center team mb-4">
+                <div className="col-md-6 col-lg-4 text-center team mb-4">
                     <div className="team-item rounded overflow-hidden mb-2">
                         <div className="team-img position-relative">
                             <img className="img-fluid" src={team2} alt=""/>
                             <div className="team-social">
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-telegram"></i></Link>
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-instagram"></i></Link>
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-linkedin-in"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://t.me/A_L_M_H_101"><i className="fab fa-telegram"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://www.instagram.com/abel_leulseged/"><i className="fab fa-instagram"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://www.linkedin.com/in/abel-mulugeta-3b5901286"><i className="fab fa-linkedin-in"></i></Link>
                             </div>
                         </div>
                         <div className="bg-secondary p-4">
                             <h5>Abel Leulseged</h5>
-                            <p className="m-0">Video Editor</p>
+                            <p className="m-0">Vice President</p>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6 col-lg-3 text-center team mb-4">
+                <div className="col-md-6 col-lg-4 text-center team mb-4">
                     <div className="team-item rounded overflow-hidden mb-2">
                         <div className="team-img position-relative">
                             <img className="img-fluid" src={team3} alt=""/>
                             <div className="team-social">
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-telegram"></i></Link>
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-instagram"></i></Link>
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-linkedin-in"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://t.me/yeabtsega12"><i className="fab fa-telegram"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://www.instagram.com/yeabtsega_tesfaye/"><i className="fab fa-instagram"></i></Link>
+                                <Link className="btn btn-outline-light btn-square mx-1" to="https://www.linkedin.com/in/yeabtsega-tesfaye-a93b98284"><i className="fab fa-linkedin-in"></i></Link>
                             </div>
                         </div>
                         <div className="bg-secondary p-4">
                             <h5>Yeabtsega Tesfaye</h5>
-                            <p className="m-0">Web Developer</p>
+                            <p className="m-0">Vice President</p>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6 col-lg-3 text-center team mb-4">
-                    <div className="team-item rounded overflow-hidden mb-2">
-                        <div className="team-img position-relative">
-                            <img className="img-fluid" src={team4} alt=""/>
-                            <div className="team-social">
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-telegram"></i></Link>
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-instagram"></i></Link>
-                                <Link className="btn btn-outline-light btn-square mx-1" to="#"><i className="fab fa-linkedin-in"></i></Link>
-                            </div>
-                        </div>
-                        <div className="bg-secondary p-4">
-                            <h5>Tinsae Daniel</h5>
-                            <p className="m-0">Programmer</p>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

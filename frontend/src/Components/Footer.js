@@ -20,11 +20,12 @@ const Footer = () => {
     const fetchCourses = async () => {
       const response = await fetch('/api/courses');
       const data = await response.json();
-      setCourses(data);
+      setCourses(data.courses);
     };
 
     fetchCourses();
   }, []);
+
     
 
     const handleSubmit = async (e) => {
@@ -70,10 +71,10 @@ const Footer = () => {
               <p><i className="fa fa-phone-alt mr-2"></i>+251 984 790 858</p>
               <p><i className="fa fa-envelope mr-2"></i>skillspectrum23@gmail.com</p>
               <div className="social d-flex justify-content-start mt-4">
-                <a className="tw btn btn-outline-light btn-square mr-2" href="https://t.me/skillspectrum23" target='blank'><i className="fab fa-telegram"></i></a>
-                <a className="ig btn btn-outline-light btn-square mr-2" href="#"><i className="fab fa-instagram"></i></a>
-                <a className="fb btn btn-outline-light btn-square mr-2" href="#"><i className="fab fa-facebook-f"></i></a>
-                <a className="in btn btn-outline-light btn-square " href="#"><i className="fab fa-linkedin-in"></i></a>
+                <Link className="tw btn btn-outline-light btn-square mr-2" to="https://t.me/skillspectrum23" target='blank'><i className="fab fa-telegram"></i></Link>
+                <Link className="ig btn btn-outline-light btn-square mr-2" to="https://www.instagram.com/skill_spectrum23" target='blank'><i className="fab fa-instagram"></i></Link>
+                <Link className="fb btn btn-outline-light btn-square mr-2" to="mailto:skillspectrum23@gmail.com"><i className="fas fa-envelope"></i></Link>
+                <Link className="in btn btn-outline-light btn-square " to="https://www.linkedin.com/in/skillspectrum23" target='blank'><i className="fab fa-linkedin-in"></i></Link>
               </div>
             </div>
 

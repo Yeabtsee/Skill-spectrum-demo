@@ -22,7 +22,7 @@ const Body = () => {
       try {
         const response = await fetch('/api/courses');
         const data = await response.json();
-        setCourses(data);
+        setCourses(data.courses);
       } catch (error) {
         console.error('Error fetching courses:', error);
       }
@@ -33,7 +33,6 @@ const Body = () => {
 
   return (
     <div className="course-list">
-    
       {courses.map(course => (
         <div className="course-card" key={course.id} id={course.course_name.toLowerCase().replace(/ /g, '-')}>
           <img src={course.image_path} alt={course.course_name} className="course-image" />
