@@ -221,7 +221,7 @@ const Registration = () => {
                                                 <button
                                                     className="btn btn-dark btn-block border-0 py-3"
                                                     type="submit"
-                                                    Disabled
+                                                    disabled
                                                 >
                                                     {isLogin ? 'Login' : 'Sign Up Now'}
                                                 </button>
