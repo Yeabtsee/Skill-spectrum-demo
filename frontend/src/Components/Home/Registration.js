@@ -85,7 +85,7 @@ const Registration = () => {
                             <p className="text-white">{isLogin ? (<h1 className="text-white">Please login to continue.</h1>)  : 
                                 (
                                 <>
-                                <h1 className='text-white'>Registrations are now open!</h1>
+                                <h1 className='text-white'>Registrations are now Closed!</h1>
                                 <br/>
                                 <h4 className='text-white'>Stay tuned until the next registration!</h4>
                                 <br/>
