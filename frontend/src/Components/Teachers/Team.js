@@ -6,7 +6,7 @@ import team2 from '../../Assets/img/Abel.jpg';
 import team3 from '../../Assets/img/20211218_1728511.jpg';
 import team4 from '../../Assets/img/tinsu.jpg';
 import team5 from '../../Assets/img/Yg.jpg';
-import team6 from '../../Assets/img/image.png';
+import team6 from '../../Assets/img/tes.jpg';
 import team7 from '../../Assets/img/Zeki.JPG';
 
 
