@@ -1,7 +1,7 @@
 // controllers/passwordController.js
 
 import db from '../config/db.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 export const verifyResetToken = async (req, res) => {
   const { token } = req.params;
