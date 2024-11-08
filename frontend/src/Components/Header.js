@@ -77,11 +77,17 @@ const Header = () => {
             <NavLink to="/contact" className="nav-item nav-link" style={({ isActive }) => ({ color: isActive ? 'orange' : 'black' })}>
               Contact
             </NavLink>
+            {isAuthenticated && (
+              <NavLink to="/mycourse" className="nav-item nav-link" style={({ isActive }) => ({ color: isActive ? 'orange' : 'black' })}>
+                My Course
+              </NavLink>
+            )}
             {isAuthenticated && adminUsers.includes(username) && (
               <NavLink to="/admin" className="nav-item nav-link" style={({ isActive }) => ({ color: isActive ? 'orange' : 'black' })}>
                 Admin
               </NavLink>
             )}
+             
           </div>
           {isAuthenticated ? (
             <div className="logout-container">

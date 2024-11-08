@@ -173,7 +173,7 @@ const Registration = () => {
                                                             value={formData.username}
                                                             onChange={handleChange}
                                                             className="form-control border-0 p-4"
-                                                            placeholder="Your name"
+                                                            placeholder="Your username"
                                                             required
                                                         />
                                                     </div>

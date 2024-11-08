@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import db from '../config/db.js';
 import dotenv from 'dotenv';
@@ -49,6 +49,41 @@ export const loginUser = (req, res) => {
     const token = jwt.sign({ id: user.id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(200).json({ token, username });
+  });
+};
+export const allUsers = (req, res) => {
+  const query = 'SELECT id, fullName, Uni_id, username, email, course FROM users';
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Error accessing the database:", err);
+      return res.status(500).json({ message: 'Error accessing the database!' });
+    }
+
+    // Check if results is an array and if it has elements
+    if (!Array.isArray(results) || results.length === 0) {
+      return res.status(404).json({ message: 'No users found!' });
+    }
+
+    res.status(200).json({ users: results });
+  });
+};
+
+
+export const myCourse = (req, res) => {
+  const { user } = req.body;
+  const query = 'SELECT course FROM users where username=?';
+
+  db.query(query,[user], (err, result) => {
+    if (err) {
+      console.error("Error accessing the database:", err);
+      return res.status(500).json({ message: 'Error accessing the database!' });
+    }
+    if ( result.length === 0) {
+      return res.status(404).json({ message: 'No users found!' });
+    }
+
+    res.status(200).json( result );
   });
 };
 
