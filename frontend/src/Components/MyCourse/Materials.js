@@ -19,7 +19,7 @@ const Materials = () => {
   // Fetch the course name (your existing logic)
   useEffect(() => {
     const username = localStorage.getItem('username');
-    const url = 'http://localhost:5000/api/users/mycourse'; 
+    const url = '/api/users/mycourse'; 
     const data = { user: username }; 
 
     fetch(url, {
