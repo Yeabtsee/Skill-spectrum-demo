@@ -222,6 +222,8 @@ const Materials = () => {
             <li><a href="files/Python/Python3.pptx" download="Python_CH3.pptx">Download Python Chapter 3</a></li>
             <li><a href="files/Python/Python4.pptx" download="Python_CH4.pptx">Download Python Chapter 4</a></li>
             <li><a href="files/Python/Final_Project.pdf" download="Previous_Project.pdf">Download Previous Projects</a></li>
+            <li><a href="files/Python/Exercise.pdf" download="Exercise 1.pdf">Download Exercise 1</a></li>
+
           </ul>
 
           <h2>Useful Links</h2>
