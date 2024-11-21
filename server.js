@@ -20,7 +20,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-// Convert import.meta.url to __dirname equivalent
+// Convert import.meta.url to a __dirname equivalent
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -36,6 +36,10 @@ app.use('/api/forgot-password', resetRoute);
 app.use('/api/reset-password', TokenRoutes)
 app.use('/api/exercise', exerciseRoute)
 app.use('/api/admin',uploadsRoute)
+
+app.use(express.static(path.join(__dirname,'/frontend/build')))
+
+app.get('*',(req,res) => res.sendFile(path.join(__dirname,'/frontend/build/index.html')))
 
 
 const PORT = process.env.PORT;
