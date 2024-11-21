@@ -74,7 +74,7 @@ const teamMembers = [
     position: 'Web Developer',
     telegram: 'https://t.me/yordi7l',
     instagram: '#',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/yordanos-legesse-461326296/',
   },
  
 ];
