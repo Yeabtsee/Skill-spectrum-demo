@@ -84,6 +84,133 @@
     color: #333;
     text-decoration: underline;
   }
+  /* General Form Styling */
+.title{
+  margin-top: 50px;
+  border-bottom: 2px solid #f9793e;
+}
+
+.exForm {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #f7f1e9, #d9e1ea);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  border: 1px solid #e6eef4;
+}
+
+/* Section Titles */
+.exForm h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #f9793e;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.5px;
+}
+
+/* Labels Styling */
+.exForm label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #fd8a55;
+}
+
+/* Input Fields */
+.exForm input[type="text"],
+.exForm input[type="file"],
+.exForm textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  background: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+.exForm input[type="text"]:focus,
+.exForm input[type="file"]:focus,
+.exForm textarea:focus {
+  border-color: #f9793e;
+  box-shadow: 0 0 8px #f9793e;
+  background: #f6fcff;
+}
+
+/* Submit Button */
+.exForm button {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(145deg, #f78e5d, #8fbdf1);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+
+.exForm button:hover {
+  background: linear-gradient(145deg, #f9793e, #67a9f4);
+  box-shadow: 0 4px 15px #f9793e;
+}
+
+/* Response Message */
+.exForm .res {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  color: #f9793e;
+}
+
+/* Extra Customization */
+.exForm div {
+  margin-bottom: 25px;
+}
+
+.exForm textarea {
+  height: 100px;
+}
+
+/* Animation for Inputs */
+.exForm input[type="text"],
+.exForm input[type="file"],
+.exForm textarea {
+  position: relative;
+}
+
+.exForm input::placeholder,
+.exForm textarea::placeholder {
+  color: #8d725d;
+  font-size: 14px;
+}
+
+/* Class-Specific Themes */
+.exForm .success-message {
+  color: #28a745;
+}
+
+.exForm .error-message {
+  color: #dc3545;
+}
+
+/* Adding Transition Effect */
+.exForm input,
+.exForm button {
+  transition: all 0.3s ease-in-out;
+}
+
   
   /* Class schedule styling */
   .class-schedule {

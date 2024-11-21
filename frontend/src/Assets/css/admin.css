@@ -48,6 +48,7 @@
   .admin-table tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
   
   /* Button styles */
   .print-button {
@@ -64,6 +65,8 @@
   .print-button:hover {
     background-color: #218838;
   }
+
+  
   
   /* Form styles */
   .add-course-form {

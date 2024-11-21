@@ -10,6 +10,8 @@ import '../../Assets/css/admin.css'
     const [courses, setCourses] = useState([]);
     const [newCourse, setNewCourse] = useState({ name: '', description: '', imagePath: '' });
     const [contacts, setContacts] = useState([]);
+    const [submissions, setSubmissions] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const adminUsers = ["YEAB", "JOSI", "ABEL"];
     const storedUsername = localStorage.getItem('username');
@@ -58,6 +60,27 @@ import '../../Assets/css/admin.css'
      
     }, []);
  
+    useEffect(() => {
+      const fetchSubmissions = async () => {
+        try {
+          const response = await fetch('/api/admin/uploads');
+          if (!response.ok) throw new Error('Failed to fetch submissions');
+          const data = await response.json();
+          setSubmissions(data.uploads);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchSubmissions();
+    }, []);
+
+    if (loading) {
+      return <p>Loading submissions...</p>;
+    }
+  
 
 
 const handlePrint = (course) => {
@@ -130,6 +153,38 @@ const handlePrint = (course) => {
             </div>
           ))}
 
+<div className="">
+      <h2>Exercise Submissions</h2>
+      <table className="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Description</th>
+            <th>File</th>
+            <th>Submitted At</th>
+          </tr>
+        </thead>
+        <tbody>
+          {submissions.map((submission) => (
+            <tr key={submission.id}>
+              <td>{submission.id}</td>
+              <td>{submission.student}</td>
+              <td>{submission.course}</td>
+              <td>{submission.description}</td>
+              <td>
+                <a href={`/${submission.file_path}`} target="_blank" rel="noopener noreferrer">
+                  Download
+                </a>
+              </td>
+              <td>{new Date(submission.submitted_at).toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
         <form onSubmit={handleAddCourse} className="add-course-form">
           <h2>Add new course</h2>
           <label>
@@ -163,6 +218,8 @@ const handlePrint = (course) => {
         </form>
          <br/>
          <br/>   
+
+
         <h2 className='title'>Contacts Table</h2>
         <table className="admin-table">
                 <thead>

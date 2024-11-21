@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Videos from './Videos.js';
-import '../../Assets/css/materials.css'; // Import the CSS file here
+import '../../Assets/css/materials.css'; 
 
 const Materials = () => {
-  const [courseName, setCourseName] = useState('');
+  const [courseName, setCourseName] = useState("");
+  const [file, setFile] = useState(null);
+  const [description, setDescription] = useState("");
+  const [student, setFullName] = useState(""); // New state for full name
+  const [responseMessage, setResponseMessage] = useState("");
 
 
   const navigate = useNavigate();
@@ -16,13 +20,13 @@ const Materials = () => {
     }
   }, []);
 
-  // Fetch the course name (your existing logic)
+
   useEffect(() => {
     const username = localStorage.getItem('username');
-    const url = 'http://localhost:5000/api/users/mycourse'; 
+    const url = '/api/users/mycourse'; 
     const data = { user: username }; 
 
-    fetch(url, {
+    fetch(url,{
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
@@ -42,6 +46,40 @@ const Materials = () => {
         console.error('Error:', error);
       });
   }, []);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!file) {
+      setResponseMessage("Please upload a file!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("File", file);
+    formData.append("description", description);
+    formData.append("courseName", courseName);
+    formData.append("student", student);
+
+    fetch("/api/exercise/submit", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message) {
+          setResponseMessage(data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setResponseMessage("An error occurred while submitting.");
+      });
+  };
 
   // Next class date calculation
   const currentDate = new Date();
@@ -176,7 +214,7 @@ const Materials = () => {
             <Videos videoId='vFvfCxZwMkk' videoTitle='Python in Amharic: Day 1 ' />
             <Videos videoId='_uQrJ0TkZlc' videoTitle='Python Full Course for Beginners  ' />
           </div>
-
+     
           <h2>Class Powerpoints</h2>
           <ul className="materials-list">   
             <li><a href="/files/Python/Python.pptx" download="Python_CH1.pptx">Download Python Chapter 1</a></li>
@@ -191,6 +229,47 @@ const Materials = () => {
             <li><a href="https://www.python.org/downloads" target='_blank'>Download Python</a></li>
             <li><a href="https://code.visualstudio.com/download" target='_blank'>Download Visual Studio Code</a></li>
           </ul>
+
+           {/* Exercise submission form */}
+      
+      <h1 className='title'>Submit Your Exercise</h1>
+      <form className='exForm' onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
+        <label>
+          Full Name:
+          <input
+            type="text"
+            name="student"
+            value={student}
+            onChange={(e) => setFullName(e.target.value)}
+            required
+            placeholder="Enter your full name"
+          />
+        </label>
+        <br />
+        <label>
+          Upload Exercise:
+          <input
+            type="file"
+            name="File"
+            onChange={handleFileChange}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Description (optional):
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            rows="4"
+            placeholder="Add any comments about your submission..."
+          />
+        </label>
+        <br />
+        <button type="submit">Submit</button>
+      
+      {responseMessage && <p className='res'>{responseMessage}</p>}
+      </form>
 
           <div className="class-schedule">
             <h4>Next Class: Monday, {formattedDate2}</h4>
