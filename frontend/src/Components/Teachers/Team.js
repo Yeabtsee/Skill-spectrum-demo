@@ -8,6 +8,7 @@ import team4 from '../../Assets/img/tinsu.jpg';
 import team5 from '../../Assets/img/Yg.jpg';
 import team6 from '../../Assets/img/tes.jpg';
 import team7 from '../../Assets/img/Zeki.JPG';
+import team8 from '../../Assets/img/Yordi.JPG';
 
 
 const teamMembers = [
@@ -64,6 +65,14 @@ const teamMembers = [
     name: 'Zekarias Geremew',
     position: 'Graphics Designer',
     telegram: 'https://t.me/Ze07ki',
+    instagram: '#',
+    linkedin: '#',
+  },
+   {
+    image: team8,
+    name: 'Yordanos Legesse',
+    position: 'Web Developer',
+    telegram: 'https://t.me/yordi7l',
     instagram: '#',
     linkedin: '#',
   },
