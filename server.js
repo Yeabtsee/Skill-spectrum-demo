@@ -25,7 +25,20 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serve static files from the 'uploads/exercises' directory
-app.use('/uploads/exercises', express.static(path.join(__dirname, 'uploads/exercises')));
+// app.use('/uploads/exercises', express.static(path.join(__dirname, 'uploads/exercises')));
+
+app.get('/uploads/exercises/:filename', (req, res) => {
+    const filename = req.params.filename;
+    const filePath = path.join(__dirname, 'uploads/exercises', filename);
+
+    // Send file with a 'Content-Disposition' header to trigger download
+    res.download(filePath, filename, (err) => {
+        if (err) {
+            console.error(err);
+            res.status(404).send('File not found');
+        }
+    });
+});
 
 
 app.use('/api/users', userRoutes);
