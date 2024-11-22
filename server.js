@@ -24,22 +24,32 @@ app.use(bodyParser.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files from the 'uploads/exercises' directory
-// app.use('/uploads/exercises', express.static(path.join(__dirname, 'uploads/exercises')));
-
-app.get('/uploads/exercises/:filename', (req, res) => {
-    const filename = req.params.filename;
-    const filePath = path.join(__dirname, 'uploads/exercises', filename);
-
-    // Send file with a 'Content-Disposition' header to trigger download
-    res.download(filePath, filename, (err) => {
+// File download route
+app.get('/uploads/exercises/:id', async (req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    const query = `
+      SELECT file_name, file_data
+      FROM exercise_submissions
+      WHERE file_name = ?
+    `;
+  
+    db.query(query, [id], (err, result) => {
         if (err) {
-            console.error(err);
-            res.status(404).send('File not found');
+          console.error('Error downloading file:', err);
+          return res.status(500).send('Error downloading file');
         }
+    
+        if (result.length === 0) {
+          return res.status(404).send('File not found');
+        }
+    
+        const file = result[0];
+        res.setHeader('Content-Disposition', `attachment; filename=${file.file_name}`);
+        res.send(file.file_data);
+      });
     });
-});
-
+    
 
 app.use('/api/users', userRoutes);
 app.use('/api/courses', coursesRoute);

@@ -8,7 +8,7 @@ uploadsRoute.get('/uploads', async (req, res) => {
     try {
       // Query the exercise_submissions table
       const query = `
-        SELECT id, student, course, description, file_path, submitted_at
+        SELECT id, student, course, description, file_name, submitted_at
         FROM exercise_submissions
         ORDER BY submitted_at DESC;
       `;
