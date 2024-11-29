@@ -19,8 +19,8 @@ exerciseRoute.post('/submit', upload.single('File'), (req, res) => {
   const fileName = file.originalname;
   const fileData = file.buffer;
 
-  const checkQuery = 'SELECT * FROM exercise_submissions WHERE student = ? AND course = ?';
-  db.query(checkQuery, [student, courseName], (checkErr, checkResult) => {
+  const checkQuery = 'SELECT * FROM exercise_submissions WHERE student = ? AND course = ? AND file_name=?';
+  db.query(checkQuery, [student, courseName, fileName], (checkErr, checkResult) => {
     if (checkErr) {
       console.error('Database error:', checkErr); // Log the error
       return res.status(500).json({ message: 'Failed to check existing submissions.' });
