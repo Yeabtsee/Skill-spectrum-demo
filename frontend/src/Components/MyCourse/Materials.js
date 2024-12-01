@@ -268,7 +268,7 @@ const Materials = () => {
           />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" disabled>Submit</button>
       
       {responseMessage && <p className='res'>{responseMessage}</p>}
       </form>
