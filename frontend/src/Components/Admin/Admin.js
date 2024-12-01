@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import * as XLSX from 'xlsx';
 import '../../Assets/css/admin.css'
 
  const Admin = () => {
@@ -104,6 +105,16 @@ const handlePrint = (course) => {
   }
 };
 
+const handlePrintExcel = (course) => {
+  const tableElement = document.getElementById(`table-${course}`);
+
+  if (tableElement) {
+    const workbook = XLSX.utils.table_to_book(tableElement);
+    XLSX.writeFile(workbook, `${course}_users.xlsx`);
+  } else {
+    alert("Table not found");
+  }
+};
     const handleAddCourse = (e) => {
       e.preventDefault();
       axios.post('/api/courses', newCourse)
@@ -149,6 +160,9 @@ const handlePrint = (course) => {
               </table>
               <button onClick={() => handlePrint(course.course_name)} className="print-button">
                 Print to PDF
+              </button>
+              <button onClick={() => handlePrintExcel(course.course_name)} className="print-button-excel">
+                Print to Excel
               </button>
             </div>
           ))}
