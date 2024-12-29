@@ -274,7 +274,9 @@ const Materials = () => {
       </form>
 
           <div className="class-schedule">
-            <h4>Next Class: Monday, {formattedDate2}</h4>
+            {/* <h4>Next Class: Monday, {formattedDate2}</h4> */}
+            <h4>Next Class: To be announced...</h4>
+
           </div>
     </>
     )}
